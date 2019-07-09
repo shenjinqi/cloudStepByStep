@@ -1,0 +1,19 @@
+#author shenjinqi
+# https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docker.html
+version: "3" #版本号
+services: 
+  elasticsearch: #服务名称（不是容器名）
+    image: elasticsearch:7.2.0  #使用的镜像
+    ports:
+      - "9200:9200"  #暴露的端口信息和docker run -d -p 80:80 一样
+    restart: "always" #重启策略，能够使服务保持始终运行，生产环境推荐使用
+    container_name: es_single #容器名称
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - /home/shenjinqi/data/elasticsearch/data:/usr/share/elasticsearch/data
+    networks:
+      - elknet
+networks:
+    elknet:
