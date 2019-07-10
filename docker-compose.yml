@@ -57,8 +57,8 @@ services:
     networks:
       - esnet
   logstash: #服务名称（不是容器名）
-    #image: logstash:7.2.0  #使用的镜像
-    image: logstash_sjq:1.0
+    image: logstash:7.2.0  #使用的镜像
+    #image: logstash_sjq:1.0
     restart: "always" #重启策略，能够使服务保持始终运行，生产环境推荐使用
     container_name: logstash #容器名称
     ports:
@@ -69,6 +69,9 @@ services:
       #- /home/shenjinqi/work/ELK/logstash.yml:/etc/logstash/logstash.yml   
       #- /home/shenjinqi/work/ELK/1.txt:/etc/logstash/1.txt 
       - ./config/:/usr/share/logstash/pipeline/
+      - ./config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      #- ./config/logstash.yml:/usr/share/logstash/config/logstash.yml
+     
     networks:
       - esnet
 
