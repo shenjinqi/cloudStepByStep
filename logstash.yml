@@ -1,1 +1,1 @@
-path.config: /etc/logstash/conf.d
+#path.config: /etc/logstash/conf.d
