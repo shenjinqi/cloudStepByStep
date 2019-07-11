@@ -17,7 +17,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata01:/home/shenjinqi/data/elasticsearch/data
+      - /home/shenjinqi/data/elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     networks:
@@ -37,7 +37,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata02:/home/shenjinqi/data/elasticsearch/data
+      - /home/shenjinqi/data/elasticsearch/data:/usr/share/elasticsearch/data
     networks:
       - esnet
 
